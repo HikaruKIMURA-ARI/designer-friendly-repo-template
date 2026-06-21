@@ -9,7 +9,7 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 const variantClass: Record<Variant, string> = {
   primary: 'bg-primary text-primary-foreground hover:opacity-90',
   danger: 'bg-danger text-primary-foreground hover:opacity-90',
-  ghost: 'bg-transparent text-foreground-muted hover:bg-surface-muted',
+  ghost: 'bg-transparent text-foreground-muted hover:bg-surface-muted'
 }
 
 /**

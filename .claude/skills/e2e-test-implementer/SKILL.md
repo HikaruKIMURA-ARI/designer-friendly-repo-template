@@ -28,29 +28,29 @@ trigger: E2E 実装|e2e implement|Phase2 e2e
 ## AAA パターン（必須）
 
 ```ts
-import { expect, test } from "@playwright/test";
-import { truncateAll } from "./fixtures/db";
+import { expect, test } from '@playwright/test'
+import { truncateAll } from './fixtures/db'
 
-test.describe("メッセージ投稿フロー", () => {
+test.describe('メッセージ投稿フロー', () => {
   // Arrange（準備） — 共有前提は test.beforeEach に置く
   test.beforeEach(async () => {
-    await truncateAll();
-  });
+    await truncateAll()
+  })
 
-  test("ユーザー名・性別・本文を入力すると一覧に新着が現れること", async ({ page }) => {
+  test('ユーザー名・性別・本文を入力すると一覧に新着が現れること', async ({ page }) => {
     // Arrange（個別前提） — test 内の最初に置く
-    await page.goto("/");
+    await page.goto('/')
 
     // Act（実行） — 1 つの振る舞いに対する操作
-    await page.getByLabel("ユーザー名", { exact: true }).fill("太郎");
-    await page.getByLabel("男", { exact: true }).check();
-    await page.getByLabel("メッセージ", { exact: true }).fill("はじめまして");
-    await page.getByRole("button", { name: "送信" }).click();
+    await page.getByLabel('ユーザー名', { exact: true }).fill('太郎')
+    await page.getByLabel('男', { exact: true }).check()
+    await page.getByLabel('メッセージ', { exact: true }).fill('はじめまして')
+    await page.getByRole('button', { name: '送信' }).click()
 
     // Assert（検証） — 事後条件
-    await expect(page.locator("#messages")).toContainText("はじめまして");
-  });
-});
+    await expect(page.locator('#messages')).toContainText('はじめまして')
+  })
+})
 ```
 
 ## セレクタ方針

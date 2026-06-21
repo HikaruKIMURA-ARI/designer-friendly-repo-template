@@ -4,7 +4,7 @@ import {
   useCreateTodo,
   useDeleteTodo,
   useToggleTodo,
-  useTodos,
+  useTodos
 } from '@/features/todos/hooks/useTodos'
 import { TodoPageView } from './TodoPageView'
 

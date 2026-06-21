@@ -4,7 +4,7 @@ import { Button } from './Button'
 const meta = {
   title: 'shared/ui/Button',
   component: Button,
-  args: { children: 'ボタン' },
+  args: { children: 'ボタン' }
 } satisfies Meta<typeof Button>
 
 export default meta

@@ -4,7 +4,7 @@ import { TextInput } from './TextInput'
 const meta = {
   title: 'shared/ui/TextInput',
   component: TextInput,
-  args: { placeholder: 'やることを入力' },
+  args: { placeholder: 'やることを入力' }
 } satisfies Meta<typeof TextInput>
 
 export default meta

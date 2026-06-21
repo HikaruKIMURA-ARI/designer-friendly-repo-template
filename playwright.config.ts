@@ -13,13 +13,13 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   use: {
     baseURL: 'http://localhost:3000',
-    trace: 'on-first-retry',
+    trace: 'on-first-retry'
   },
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
+      use: { ...devices['Desktop Chrome'] }
+    }
   ],
   webServer: {
     command: 'bun run db:migrate && bun run dev',
@@ -27,7 +27,7 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
     env: {
-      TURSO_DATABASE_URL: E2E_DATABASE_URL,
-    },
-  },
+      TURSO_DATABASE_URL: E2E_DATABASE_URL
+    }
+  }
 })

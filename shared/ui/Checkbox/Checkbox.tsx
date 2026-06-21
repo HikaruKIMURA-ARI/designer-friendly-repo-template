@@ -1,9 +1,6 @@
 import type { InputHTMLAttributes } from 'react'
 
-export type CheckboxProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  'type'
->
+export type CheckboxProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>
 
 /**
  * 純粋な UI の atom。チェック状態は props（checked/onChange）で制御する。

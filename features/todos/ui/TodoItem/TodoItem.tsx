@@ -27,11 +27,7 @@ export function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
       >
         {todo.title}
       </span>
-      <Button
-        variant="ghost"
-        aria-label={`${todo.title} を削除`}
-        onClick={() => onDelete(todo.id)}
-      >
+      <Button variant="ghost" aria-label={`${todo.title} を削除`} onClick={() => onDelete(todo.id)}>
         削除
       </Button>
     </li>

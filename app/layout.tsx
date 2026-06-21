@@ -4,11 +4,11 @@ import { QueryProvider } from '@/features/todos/hooks/QueryProvider'
 
 export const metadata: Metadata = {
   title: 'Todo | design-work template',
-  description: 'design-as-code 部署テンプレート',
+  description: 'design-as-code 部署テンプレート'
 }
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode
 }>) {

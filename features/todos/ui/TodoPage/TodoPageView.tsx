@@ -22,7 +22,7 @@ export function TodoPageView({
   creating = false,
   onCreate,
   onToggle,
-  onDelete,
+  onDelete
 }: TodoPageViewProps) {
   return (
     <main className="mx-auto flex max-w-xl flex-col gap-6 p-6">
@@ -31,9 +31,7 @@ export function TodoPageView({
       <TodoForm onSubmit={onCreate} disabled={creating} />
 
       {isLoading ? (
-        <p className="py-8 text-center text-sm text-foreground-muted">
-          読み込み中...
-        </p>
+        <p className="py-8 text-center text-sm text-foreground-muted">読み込み中...</p>
       ) : (
         <TodoList todos={todos} onToggle={onToggle} onDelete={onDelete} />
       )}

@@ -15,7 +15,7 @@ export function useTodos() {
     queryFn: async () => {
       const res = await todosApi.$get()
       return (await res.json()) as Todo[]
-    },
+    }
   })
 }
 
@@ -30,7 +30,7 @@ export function useCreateTodo() {
       if (!res.ok) throw new Error('Failed to create todo')
       return res.json()
     },
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: todosKey }),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: todosKey })
   })
 }
 
@@ -43,12 +43,12 @@ export function useToggleTodo() {
     mutationFn: async (input: { id: number; completed: boolean }) => {
       const res = await todosApi[':id'].$patch({
         param: { id: String(input.id) },
-        json: { completed: input.completed },
+        json: { completed: input.completed }
       })
       if (!res.ok) throw new Error('Failed to update todo')
       return res.json()
     },
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: todosKey }),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: todosKey })
   })
 }
 
@@ -63,6 +63,6 @@ export function useDeleteTodo() {
       if (!res.ok) throw new Error('Failed to delete todo')
       return res.json()
     },
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: todosKey }),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: todosKey })
   })
 }

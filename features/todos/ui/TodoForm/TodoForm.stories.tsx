@@ -4,7 +4,7 @@ import { TodoForm } from './TodoForm'
 const meta = {
   title: 'features/todos/TodoForm',
   component: TodoForm,
-  args: { onSubmit: () => {} },
+  args: { onSubmit: () => {} }
 } satisfies Meta<typeof TodoForm>
 
 export default meta

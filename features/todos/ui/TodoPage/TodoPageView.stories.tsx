@@ -10,7 +10,7 @@ const meta = {
   title: 'pages/Todo',
   component: TodoPageView,
   parameters: { layout: 'fullscreen' },
-  args: { onCreate: () => {}, onToggle: () => {}, onDelete: () => {} },
+  args: { onCreate: () => {}, onToggle: () => {}, onDelete: () => {} }
 } satisfies Meta<typeof TodoPageView>
 
 export default meta
@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>
 
 const sampleTodos: Todo[] = [
   { id: 1, title: '牛乳を買う', completed: false, createdAt: '2026-06-21 12:00:00' },
-  { id: 2, title: '部屋を掃除する', completed: true, createdAt: '2026-06-21 09:00:00' },
+  { id: 2, title: '部屋を掃除する', completed: true, createdAt: '2026-06-21 09:00:00' }
 ]
 
 /** 通常表示: いくつかの Todo がある状態 */

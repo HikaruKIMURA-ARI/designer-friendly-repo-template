@@ -9,8 +9,8 @@ const preview: Preview = {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/i,
-      },
+        date: /Date$/i
+      }
     },
     // 本番の app/layout.tsx の body と同じ前提（ダークサーフェス）を再現する。
     // Storybook は layout.tsx を読まないため、ここで明示しないと白背景になる。
@@ -18,17 +18,17 @@ const preview: Preview = {
       default: 'surface-muted',
       values: [
         { name: 'surface-muted', value: '#0e1c1a' },
-        { name: 'surface', value: '#06100f' },
-      ],
-    },
+        { name: 'surface', value: '#06100f' }
+      ]
+    }
   },
   decorators: [
     (Story) => (
       <div className="min-h-screen bg-surface-muted p-6 text-foreground antialiased">
         <Story />
       </div>
-    ),
-  ],
+    )
+  ]
 }
 
 export default preview

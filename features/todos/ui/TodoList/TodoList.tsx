@@ -12,22 +12,13 @@ export type TodoListProps = {
  */
 export function TodoList({ todos, onToggle, onDelete }: TodoListProps) {
   if (todos.length === 0) {
-    return (
-      <p className="py-8 text-center text-sm text-foreground-muted">
-        まだ Todo はありません
-      </p>
-    )
+    return <p className="py-8 text-center text-sm text-foreground-muted">まだ Todo はありません</p>
   }
 
   return (
     <ul className="flex flex-col gap-2">
       {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          onToggle={onToggle}
-          onDelete={onDelete}
-        />
+        <TodoItem key={todo.id} todo={todo} onToggle={onToggle} onDelete={onDelete} />
       ))}
     </ul>
   )

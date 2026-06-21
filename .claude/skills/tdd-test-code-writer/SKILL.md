@@ -22,13 +22,13 @@ trigger: RED|テストコード作成|test code writing|Phase2
 
 ```ts
 // Arrange（準備） — `it` の外に置く（beforeEach / 上位 describe）
-const input = createTestInput();
+const input = createTestInput()
 
 // Act（実行） — `it` 内、対象の振る舞いを 1 つだけ
-const result = targetFunction(input);
+const result = targetFunction(input)
 
 // Assert（検証） — `it` 内、事後条件・不変条件
-expect(result).toBe(expected);
+expect(result).toBe(expected)
 ```
 
 ## モック方針

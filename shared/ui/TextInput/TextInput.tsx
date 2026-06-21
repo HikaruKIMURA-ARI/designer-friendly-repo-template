@@ -5,11 +5,7 @@ export type TextInputProps = InputHTMLAttributes<HTMLInputElement>
 /**
  * 純粋な UI の atom。値は props（value/onChange）で制御する。
  */
-export function TextInput({
-  className = '',
-  type = 'text',
-  ...props
-}: TextInputProps) {
+export function TextInput({ className = '', type = 'text', ...props }: TextInputProps) {
   return (
     <input
       type={type}

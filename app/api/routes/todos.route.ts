@@ -11,7 +11,7 @@ import { todos } from '@/lib/db/schema'
  * テーブル定義（todos）から導出し、title は必須・空文字不可とする。
  */
 const createTodoSchema = createInsertSchema(todos, {
-  title: (schema) => schema.min(1),
+  title: (schema) => schema.min(1)
 }).pick({ title: true })
 
 /**
@@ -20,7 +20,7 @@ const createTodoSchema = createInsertSchema(todos, {
  */
 const updateTodoSchema = z.object({
   title: z.string().min(1).optional(),
-  completed: z.boolean().optional(),
+  completed: z.boolean().optional()
 })
 
 /**
@@ -40,20 +40,13 @@ export const todosRoute = new Hono()
   .patch('/:id', zValidator('json', updateTodoSchema), async (c) => {
     const id = Number(c.req.param('id'))
     const patch = c.req.valid('json')
-    const [updated] = await db
-      .update(todos)
-      .set(patch)
-      .where(eq(todos.id, id))
-      .returning()
+    const [updated] = await db.update(todos).set(patch).where(eq(todos.id, id)).returning()
     if (!updated) return c.json({ error: 'Not Found' }, 404)
     return c.json(updated)
   })
   .delete('/:id', async (c) => {
     const id = Number(c.req.param('id'))
-    const [deleted] = await db
-      .delete(todos)
-      .where(eq(todos.id, id))
-      .returning()
+    const [deleted] = await db.delete(todos).where(eq(todos.id, id)).returning()
     if (!deleted) return c.json({ error: 'Not Found' }, 404)
     return c.json({ success: true })
   })

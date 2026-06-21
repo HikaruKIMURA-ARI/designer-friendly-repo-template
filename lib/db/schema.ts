@@ -11,7 +11,7 @@ export const todos = sqliteTable('todos', {
   completed: integer('completed', { mode: 'boolean' }).notNull().default(false),
   createdAt: text('created_at')
     .notNull()
-    .default(sql`(current_timestamp)`),
+    .default(sql`(current_timestamp)`)
 })
 
 export type Todo = typeof todos.$inferSelect

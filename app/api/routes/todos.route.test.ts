@@ -54,10 +54,7 @@ describe('Todo CRUD API', () => {
         // Assert
         expect(response.status).toBe(200)
         const body = (await response.json()) as { title: string }[]
-        expect(body.map((todo) => todo.title)).toEqual([
-          '新しいタスク',
-          '古いタスク',
-        ])
+        expect(body.map((todo) => todo.title)).toEqual(['新しいタスク', '古いタスク'])
       })
     })
 
@@ -86,7 +83,7 @@ describe('Todo CRUD API', () => {
         const response = await app.request('/api/todos', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ title: '牛乳を買う' }),
+          body: JSON.stringify({ title: '牛乳を買う' })
         })
 
         // Assert
@@ -104,7 +101,7 @@ describe('Todo CRUD API', () => {
         const response = await app.request('/api/todos', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ title: '牛乳を買う' }),
+          body: JSON.stringify({ title: '牛乳を買う' })
         })
 
         // Assert
@@ -118,7 +115,7 @@ describe('Todo CRUD API', () => {
         await app.request('/api/todos', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ title: '牛乳を買う' }),
+          body: JSON.stringify({ title: '牛乳を買う' })
         })
 
         // Assert
@@ -137,7 +134,7 @@ describe('Todo CRUD API', () => {
         const response = await app.request('/api/todos', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ title: '' }),
+          body: JSON.stringify({ title: '' })
         })
 
         // Assert
@@ -149,7 +146,7 @@ describe('Todo CRUD API', () => {
         const response = await app.request('/api/todos', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({}),
+          body: JSON.stringify({})
         })
 
         // Assert
@@ -173,7 +170,7 @@ describe('Todo CRUD API', () => {
         const response = await app.request(`/api/todos/${target.id}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ title: 'パンを買う' }),
+          body: JSON.stringify({ title: 'パンを買う' })
         })
 
         // Assert
@@ -187,7 +184,7 @@ describe('Todo CRUD API', () => {
         const response = await app.request(`/api/todos/${target.id}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ completed: true }),
+          body: JSON.stringify({ completed: true })
         })
 
         // Assert
@@ -204,7 +201,7 @@ describe('Todo CRUD API', () => {
         const response = await app.request(`/api/todos/${target.id}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ completed: true }),
+          body: JSON.stringify({ completed: true })
         })
 
         // Assert
@@ -222,7 +219,7 @@ describe('Todo CRUD API', () => {
         const response = await app.request('/api/todos/999999', {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ title: '存在しない' }),
+          body: JSON.stringify({ title: '存在しない' })
         })
 
         // Assert
@@ -243,7 +240,7 @@ describe('Todo CRUD API', () => {
       it('存在する id を削除すると成功レスポンスを 200 で返す', async () => {
         // Act
         const response = await app.request(`/api/todos/${target.id}`, {
-          method: 'DELETE',
+          method: 'DELETE'
         })
 
         // Assert
@@ -255,7 +252,7 @@ describe('Todo CRUD API', () => {
       it('削除後に一覧取得するとその todo が存在しない', async () => {
         // Act
         await app.request(`/api/todos/${target.id}`, {
-          method: 'DELETE',
+          method: 'DELETE'
         })
 
         // Assert
@@ -272,7 +269,7 @@ describe('Todo CRUD API', () => {
       it('該当する todo が存在しない id を渡すと 404 を返す', async () => {
         // Act
         const response = await app.request('/api/todos/999999', {
-          method: 'DELETE',
+          method: 'DELETE'
         })
 
         // Assert
