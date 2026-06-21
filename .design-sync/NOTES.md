@@ -38,9 +38,13 @@ is the repo-root `node_modules` (has react/react-dom).
 - **New utility classes.** If a future component uses a token-utility not previously compiled (e.g. the
   first use of `rounded-card`), it only reaches the shipped CSS via a fresh sb-reference build. Re-grade
   any component whose story changed.
-- **Grades are all image-judged `match` from the first full sync** (no anchor existed — prior run created
-  the project but never uploaded `_ds_sync.json`). All 14 stories were judged from images, none
-  sibling-trusted. Story caps not hit (max 4 stories/component).
+- **Anchor is healthy as of 2026-06-21.** The project carries `_ds_sync.json` (6 render hashes +
+  sourceKeys, `keyRecipe: 7`); re-syncs run with `--remote` against it. All 14 stories are graded
+  image-judged `match`, none sibling-trusted. Story caps not hit (max 4 stories/component).
+- **Re-grade churn from sourceKey recipe/script shifts.** On the 2026-06-21 re-sync all 6 components came
+  back `changed`/`pendingGrade` even though every story had `storyChanged: false` — sourceKeys differed
+  from the anchor (recipe/scripts refresh), the renders did not. Expected: just re-grade from the fresh
+  compare sheets (all matched again). Not a real visual regression.
 - **Recovery note:** on 2026-06-21 the working tree's `.design-sync/` dir had been deleted; `config.json`
   and `ds-entry.ts` were restored from git HEAD. The three committed `*.log` files under `.design-sync/`
   are junk and should be removed from tracking (they're transient build logs).
