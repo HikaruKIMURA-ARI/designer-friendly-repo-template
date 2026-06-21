@@ -28,8 +28,6 @@ trigger: implement|add feature|fix bug|create|build|修正|実装|追加|作成|
 | Phase 4: GREEN（最小実装）       | `tdd-implementer`        | `.claude/agents/tdd-implementer.md`        | `.claude/skills/tdd-implementer/SKILL.md`        |
 | Phase 5: REFACTOR（改善）        | `tdd-refactorer`         | `.claude/agents/tdd-refactorer.md`         | `.claude/skills/tdd-refactorer/SKILL.md`         |
 
-UI のリファクタリングは Phase 5 で `subagent_type: "ui-optimizer"` を呼び、`.claude/skills/ui-optimization/SKILL.md` に従う（任意）。
-
 ## 起動方法（必須）
 
 各 Phase は **必ず `Agent` ツールで対応するサブエージェントを起動** する。メインエージェントが SKILL.md を読んで Phase 作業を直接実行することは禁止（プロジェクト agent の `CLAUDE.md` で定義された権限境界が無視され、ワークフロー定義から外れるため）。
