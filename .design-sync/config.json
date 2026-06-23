@@ -8,5 +8,8 @@
   "tsconfig": "tsconfig.json",
   "entry": ".design-sync/ds-entry.ts",
   "buildCmd": "npx storybook build -c .storybook -o .design-sync/sb-reference",
+  "titleMap": {
+    "Todo": "TodoPageView"
+  },
   "readmeHeader": ".design-sync/conventions.md"
 }
